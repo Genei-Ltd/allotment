@@ -1,6 +1,6 @@
 {
-  "name": "allotment",
-  "version": "1.20.5",
+  "name": "@coloop-ai/allotment",
+  "version": "1.20.6",
   "description": "React split-pane component",
   "exports": {
     ".": {
@@ -19,9 +19,12 @@
     "pane",
     "view"
   ],
-  "repository": "https://github.com/johnwalley/allotment.git",
+  "repository": "https://github.com/genei-ltd/allotment.git",
   "author": "johnwalley <john@walley.org.uk>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://allotment.mulberryhousesoftware.com/",
   "files": [
     "dist/*.mjs",
