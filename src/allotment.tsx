@@ -260,6 +260,17 @@ const Allotment = forwardRef<AllotmentHandle, AllotmentProps>(
         onDragEnd,
       );
 
+      // Measure the container and apply the initial layout synchronously
+      // before the browser paints, so panes have correct dimensions on the
+      // first frame. The ResizeObserver handles subsequent resizes.
+      const initialSize = vertical
+        ? containerRef.current.offsetHeight
+        : containerRef.current.offsetWidth;
+
+      if (initialSize > 0) {
+        splitViewRef.current.layout(initialSize);
+      }
+
       splitViewRef.current.on("sashDragStart", () => {
         containerRef.current?.classList.add("split-view-sash-dragging");
       });
