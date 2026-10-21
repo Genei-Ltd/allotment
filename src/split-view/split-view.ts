@@ -399,7 +399,10 @@ export class SplitView extends EventEmitter implements Disposable {
         index,
         viewDescriptor,
       ] of options.descriptor.views.entries()) {
-        const size = viewDescriptor.size;
+        const size =
+          viewDescriptor.visible === false
+            ? Sizing.Invisible(viewDescriptor.size)
+            : viewDescriptor.size;
 
         const container = viewDescriptor.container;
         const view = viewDescriptor.view;
