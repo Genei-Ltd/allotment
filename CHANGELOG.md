@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.20.7](https://github.com/Genei-Ltd/allotment/compare/v1.20.5...v1.20.7) (2026-10-28)
+
+Published as `@coloop-ai/allotment`. Brings in upstream's 1.20.6 fixes, listed under 1.20.6 below; the fork's own 1.20.6 was upstream 1.20.5 plus the initial-layout fix noted here.
+
+### Bug Fixes
+
+* start panes with `visible={false}` hidden when laid out from `defaultSizes`, instead of showing them for one frame ([#1](https://github.com/Genei-Ltd/allotment/pull/1))
+* scale `defaultSizes` up front, so a pane that starts hidden reopens at its scaled size ([#1](https://github.com/Genei-Ltd/allotment/pull/1))
+* apply the initial layout synchronously, so panes have their sizes on the first frame; shipped in the fork's 1.20.6 ([a024f96](https://github.com/Genei-Ltd/allotment/commit/a024f96f9d3624e272975137141ecbd318997c29))
+
 ## [1.20.6](https://github.com/johnwalley/allotment/compare/v1.20.5...v1.20.6) (2026-10-12)
 
 
