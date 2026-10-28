@@ -218,13 +218,25 @@ const Allotment = forwardRef<AllotmentHandle, AllotmentProps>(
         );
       }
 
+      // Lay out before the first paint; the ResizeObserver handles later resizes.
+      const initialSize = vertical
+        ? containerRef.current.offsetHeight
+        : containerRef.current.offsetWidth;
+
+      // Scale up front so a pane that starts hidden remembers its scaled size.
+      const defaultSizesTotal = defaultSizes?.reduce((a, b) => a + b, 0) ?? 0;
+      const scale =
+        proportionalLayout && initialSize > 0 && defaultSizesTotal > 0
+          ? initialSize / defaultSizesTotal
+          : 1;
+
       const options: SplitViewOptions = {
         orientation: vertical ? Orientation.Vertical : Orientation.Horizontal,
         proportionalLayout,
         ...(initializeSizes &&
           defaultSizes && {
             descriptor: {
-              size: defaultSizes.reduce((a, b) => a + b, 0),
+              size: defaultSizesTotal * scale,
               views: defaultSizes.map((size, index) => {
                 const props = splitViewPropsRef.current.get(
                   previousKeys.current[index],
@@ -245,7 +257,7 @@ const Allotment = forwardRef<AllotmentHandle, AllotmentProps>(
 
                 return {
                   container: [...splitViewViewRef.current.values()][index],
-                  size: size,
+                  size: size * scale,
                   view: view,
                   visible: props?.visible,
                 };
@@ -261,13 +273,6 @@ const Allotment = forwardRef<AllotmentHandle, AllotmentProps>(
         onDragStart,
         onDragEnd,
       );
-
-      // Measure the container and apply the initial layout synchronously
-      // before the browser paints, so panes have correct dimensions on the
-      // first frame. The ResizeObserver handles subsequent resizes.
-      const initialSize = vertical
-        ? containerRef.current.offsetHeight
-        : containerRef.current.offsetWidth;
 
       if (initialSize > 0) {
         splitViewRef.current.layout(initialSize);
