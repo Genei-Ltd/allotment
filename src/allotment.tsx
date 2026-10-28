@@ -257,7 +257,7 @@ const Allotment = forwardRef<AllotmentHandle, AllotmentProps>(
 
                 return {
                   container: [...splitViewViewRef.current.values()][index],
-                  size: size * scale,
+                  size: Math.round(size * scale),
                   view: view,
                   visible: props?.visible,
                 };
