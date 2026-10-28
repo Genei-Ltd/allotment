@@ -1,6 +1,6 @@
 {
   "name": "@coloop-ai/allotment",
-  "version": "1.20.7",
+  "version": "1.20.6",
   "description": "React split-pane component",
   "exports": {
     ".": {

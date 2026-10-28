@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.20.6](https://github.com/Genei-Ltd/allotment/compare/v1.20.5...v1.20.6) (2026-10-28)
+
+
+### Bug Fixes
+
+* apply initial layout synchronously to prevent one-frame flash ([a024f96](https://github.com/Genei-Ltd/allotment/commit/a024f96f9d3624e272975137141ecbd318997c29))
+* honour pane visibility in the initial descriptor layout ([65c5701](https://github.com/Genei-Ltd/allotment/commit/65c5701bfb8da499676457b71e91ad13a30ee457))
+
 ## [1.20.7](https://github.com/Genei-Ltd/allotment/compare/v1.20.5...v1.20.7) (2026-10-28)
 
 Published as `@coloop-ai/allotment`. Brings in upstream's 1.20.6 fixes, listed under 1.20.6 below; the fork's own 1.20.6 was upstream 1.20.5 plus the initial-layout fix noted here.
